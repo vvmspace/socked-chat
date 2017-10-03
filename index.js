@@ -9,6 +9,9 @@ app.get('/stop', function(req,res){
     console.log('Exiting');
     process.exit();
 });
+io.on('connection', function(socket){
+    console.log('a user connected');
+});
 http.listen(5000, function(){
     console.log('listening on *:5000');
 });
