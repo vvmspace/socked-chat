@@ -14,8 +14,10 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
+    socket.broadcast.emit('hi');
     socket.on('chat message', function(msg){
         console.log('message: ' + msg);
+        io.emit('chat message', msg);
     });
 });
 http.listen(5000, function(){
